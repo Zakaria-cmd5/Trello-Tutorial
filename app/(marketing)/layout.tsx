@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from "react";
 import NavBar from "./_components/NavBar";
 import Footer from "./_components/Footer";
 
-const layout = ({ children }: PropsWithChildren) => {
+const MarketingLayout = ({ children }: PropsWithChildren) => {
   return (
     <div className="h-full bg-slate-100">
       <NavBar />
@@ -12,4 +12,4 @@ const layout = ({ children }: PropsWithChildren) => {
   );
 };
 
-export default layout;
+export default MarketingLayout;
