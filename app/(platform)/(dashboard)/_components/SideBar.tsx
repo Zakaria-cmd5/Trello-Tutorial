@@ -7,6 +7,7 @@ import { useOrganization, useOrganizationList } from "@clerk/nextjs";
 import { Plus } from "lucide-react";
 import Link from "next/link";
 import { useLocalStorage } from "usehooks-ts";
+import NavItem, { Organization } from "./NavItem";
 
 interface Props {
   storgeKey?: string;
@@ -79,7 +80,13 @@ const SideBar = ({ storgeKey = "t-sidebar-state" }: Props) => {
         className="space-y-2"
       >
         {userMemberships.data.map(({ organization }) => (
-          <p key={organization.id}>{organization.id}</p>
+          <NavItem
+            key={organization.id}
+            isActive={activeOrganization?.id === organization.id}
+            isExpanded={expanded[organization.id]}
+            onExpanded={onExpanded}
+            organization={organization as Organization}
+          />
         ))}
       </Accordion>
     </>
