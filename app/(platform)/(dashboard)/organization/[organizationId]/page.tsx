@@ -1,13 +1,14 @@
-import { create } from "@/actions/createBoard";
+import { createBord } from "@/actions/createBoard";
 import { Button } from "@/components/ui/button";
 import prisma from "@/prisma/client";
+import Board from "./Board";
 
 const OrganizationIdPage = async () => {
   const board = await prisma.board.findMany();
 
   return (
     <div className="flex flex-col space-y-4">
-      <form action={create}>
+      <form action={createBord}>
         <input
           id="title"
           name="title"
@@ -19,7 +20,7 @@ const OrganizationIdPage = async () => {
       </form>
       <div className="space-y-2">
         {board.map((board) => (
-          <div key={board.id}>{board.title}</div>
+          <Board id={board.id} title={board.title} key={board.id} />
         ))}
       </div>
     </div>
