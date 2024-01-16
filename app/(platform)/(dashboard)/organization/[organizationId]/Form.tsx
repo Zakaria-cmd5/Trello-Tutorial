@@ -2,8 +2,8 @@
 
 import { useAction } from "@/hooks/useAction";
 import FormButton from "./FormButton";
-import Input from "./Input";
 import { createBoard } from "@/actions/createBoard";
+import FormInput from "@/components/form/FormInput";
 
 const Form = () => {
   const { excute, fieldErrors } = useAction(createBoard, {
@@ -20,7 +20,7 @@ const Form = () => {
   return (
     <form action={onSubmit}>
       <div className="flex flex-col space-y-2">
-        <Input errors={fieldErrors} />
+        <FormInput label="Board Title" id="title" errors={fieldErrors} />
       </div>
       <FormButton />
     </form>
