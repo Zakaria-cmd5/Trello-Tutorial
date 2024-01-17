@@ -1,5 +1,12 @@
 import React, { ReactNode } from "react";
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import {
+  Popover,
+  PopoverClose,
+  PopoverContent,
+  PopoverTrigger,
+} from "../ui/popover";
+import { Button } from "../ui/button";
+import { X } from "lucide-react";
 
 interface Props {
   children: ReactNode;
@@ -26,6 +33,14 @@ const FormPopover = ({
         <div className="text-sm font-medium text-center text-neutral-600 pb-4">
           Create board
         </div>
+        <PopoverClose asChild>
+          <Button
+            className="h-auto w-auto p-2 absolute top-2 right-2 text-neutral-600"
+            variant="ghost"
+          >
+            <X className="h-4 w-4" />
+          </Button>
+        </PopoverClose>
       </PopoverContent>
     </Popover>
   );
