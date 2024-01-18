@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { ReactNode } from "react";
 import {
@@ -13,6 +13,7 @@ import FormInput from "./FormInput";
 import FormButtonSubmit from "./FormButtonSubmit";
 import { useAction } from "@/hooks/useAction";
 import { createBoard } from "@/actions/createBoard";
+import { toast } from "sonner";
 
 interface Props {
   children: ReactNode;
@@ -30,9 +31,11 @@ const FormPopover = ({
   const { excute, fieldErrors } = useAction(createBoard, {
     onSuccess: (data) => {
       console.log(data);
+      toast.success("Board created");
     },
     onError: (error) => {
       console.log(error);
+      toast.error(error);
     },
   });
 
